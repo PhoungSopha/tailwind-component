@@ -1,0 +1,13 @@
+:root {
+  --danger-color: hsla(0, 100%, 43%, 0.98);
+  --primary-color: hsla(189, 96%, 49%, 1);
+  --secondary-color: hsla(297, 100%, 50%, 1);
+  --success-color: hsla(118, 100%, 43%, 1);
+  --warning-color: hsla(48, 100%, 50%, 1);
+  --gray-color: rgba(230, 225, 225, 0.5);
+  --box-color: rgba(255, 255, 255, 0.18);
+}
+
+.title {
+  @apply text-6xl font-bold text-center text-green-500;
+}

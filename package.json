@@ -1,0 +1,30 @@
+{
+  "name": "tailwind-nuxt-component",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "build:all": "build:css ",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "build:css": "tailwindcss --postcss -i assets/tailwind/tailwind.css -o assets/css/main.css --minify",
+    "watch:css": "tailwindcss --postcss -i assets/tailwind/tailwind.css -o assets/css/main.css -w"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/pwa": "^3.3.5",
+    "boxicons": "^2.1.1",
+    "core-js": "^3.15.1",
+    "nuxt": "^2.15.7",
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.3.4",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "postcss-import": "^14.0.2",
+    "sass": "^1.44.0",
+    "sass-loader": "^10.1.1"
+  }
+}
