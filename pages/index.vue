@@ -9,7 +9,19 @@
         <a href="https://learnvue.co" class="text-green-500 pr-5"
           >Learnvue.co</a
         >
-        <button-vue color="primary" @click="Show">Click</button-vue>
+        <base-button color="success" @click="Show">
+          <template>
+            <span class="flex items-center">
+              <i class="bx bx-plus-circle pr-1 text-xl"></i>
+              <span class="font-white font-medium tracking-wide p-1"
+                >Click me</span
+              >
+            </span>
+          </template>
+        </base-button>
+        <div class="mt-4">
+          <BaseNotification color="warning" :description="msg" />
+        </div>
       </template>
     </caption-content>
 
@@ -36,11 +48,13 @@
 
 <script>
 import CaptionContent from "../components/CaptionContent.vue";
-import ButtonVue from "../components/ButtonVue.vue";
+import BaseButton from "../components/BaseButton.vue";
+import BaseNotification from "../components/BaseNotification.vue";
 export default {
-  components: { CaptionContent, ButtonVue },
+  components: { CaptionContent, BaseButton, BaseNotification },
   data() {
     return {
+      msg: "Welcome to Mobile Legend Welcome to Mobile Legend Welcome to Mobile Legend Welcome to Mobile Legend",
       message: "Hi",
       users: {
         name: "vicheka",
@@ -52,10 +66,12 @@ export default {
   methods: {
     Show() {
       const user = {
-        ...this.users,
+        ...this.users.address,
+        status: "Active",
       };
-      user.address = { village: "KL" };
+      user.status = { village: "KL" };
       console.log(user);
+      console.log(user.status);
       // console.log(this.users.address.city);
       // console.log([...user.city]);
     },

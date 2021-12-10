@@ -8,16 +8,17 @@
   </button>
 </template>
 <script>
-import { ButtonColors } from "../src/Button";
+import { ButtonColors } from "../src/BaseStyle";
+
 export default {
-  name: "button-vue",
+  name: "base-button",
   props: {
     color: {
       type: String,
       default: "secondary",
       require: false,
       validator: (value) => {
-        return Object.keys(ButtonColors).includes(value);
+        return ButtonColors[value];
       },
     },
   },

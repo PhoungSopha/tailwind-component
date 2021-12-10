@@ -32,7 +32,12 @@ export default {
     "@nuxtjs/axios",
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
+    "nuxt-purgecss",
   ],
+  purgeCSS: {
+    mode: "postcss",
+    enabled: process.env.NODE_ENV === "production",
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

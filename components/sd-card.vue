@@ -19,18 +19,14 @@
             <a :href="url" class="hover:underline">{{ title }}</a>
           </div>
           <div class="mt-2 text-sm text-gray-600">{{ pricing }}</div>
-          <div class="mt-2">
-            <sd-button>Click</sd-button>
-          </div>
+          <div class="mt-2"></div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import sdButton from "./sd-button.vue";
 export default {
-  components: { sdButton },
   name: "Card",
   props: {
     imgUrl: { type: String },
