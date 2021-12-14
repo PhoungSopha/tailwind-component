@@ -1,24 +1,5 @@
 <template>
   <div class="max-w-lg mx-auto p-7 w-lg">
-    <div class="my-5 p-5">
-      <span class="animate-spin"
-        ><i class="bx bx-loader-alt text-3xl"></i
-      ></span>
-    </div>
-    <div>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        class="animate-spin"
-        viewBox="0 0 24 24"
-        style="fill: rgba(0, 0, 0, 1); transform: ; msfilter: "
-      >
-        <path
-          d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z"
-        ></path>
-      </svg>
-    </div>
     <form action="#" submit.prevent="" class="mx-auto p-2 w-full">
       <h2
         class="text-3xl font-bold antialiased text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-purple-500"
