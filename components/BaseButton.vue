@@ -1,10 +1,27 @@
 <template>
   <button
+    :disabled="disabled || loading"
     @click="$emit('click')"
-    class="px-4 py-2 font-medium tracking-wide text-center transition-colors duration-150 ease-in-out border border-solid rounded shadow-md"
     :class="buttonColor"
   >
-    <slot></slot>
+    <span v-if="!loading"> <slot /></span>
+    <div class="flex gap-x-1">
+      <span v-show="loading">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          class="animate-spin"
+          viewBox="0 0 24 24"
+          style="fill: rgba(0, 0, 0, 1); transform: ; msfilter: "
+        >
+          <path
+            d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z"
+          ></path>
+        </svg>
+      </span>
+      <span>{{ label }}</span>
+    </div>
   </button>
 </template>
 <script>
@@ -13,19 +30,22 @@ import { ButtonColors } from "../src/BaseStyle";
 export default {
   name: "base-button",
   props: {
-    color: {
+    loading: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
+    label: { type: String, default: "" },
+    type: {
       type: String,
       default: "secondary",
       require: false,
       validator: (value) => {
-        return ButtonColors[value];
+        return !!ButtonColors[value];
       },
     },
   },
 
   computed: {
     buttonColor() {
-      return ButtonColors[this.color];
+      return ButtonColors[this.type];
     },
   },
 };

@@ -43,6 +43,10 @@
       </template>
     </caption-content>
     <div class="mt-6">{{ users }}</div>
+
+    <div class="mt-5">
+      <nuxt-link to="/user">User Link</nuxt-link>
+    </div>
   </div>
 </template>
 

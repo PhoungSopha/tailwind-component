@@ -1,12 +1,12 @@
 export const ButtonColors = {
   success:
-    "bg-green-600 text-white border-green-500 hover:bg-green-500 hover:border-green-600",
+    "px-4 py-2 font-medium tracking-wide text-center transition-colors duration-150 ease-in-out border border-solid rounded shadow-md bg-green-600 text-white border-green-500 hover:bg-green-500 hover:border-green-600",
   danger:
-    "bg-red-700 text-white border-red-600 hover:bg-red-600 hover:border-red-700",
+    "px-4 py-2 font-medium tracking-wide text-center transition-colors duration-150 ease-in-out border border-solid rounded shadow-md bg-red-700 text-white border-red-600 hover:bg-red-600 hover:border-red-700",
   primary:
-    "bg-blue-800 text-white border-blue-800 hover:bg-transparent hover:text-blue-800 hover:border-blue-800",
+    "px-4 py-2 font-medium tracking-wide text-center transition-colors duration-150 ease-in-out border border-solid rounded shadow-md bg-blue-800 text-white border-blue-800 hover:bg-transparent hover:text-blue-800 hover:border-blue-800",
   secondary:
-    "bg-transparent text-blue-800 border-blue-800 hover:bg-blue-800 hover:text-white hover:border-blue-800",
+    "px-4 py-2 font-medium tracking-wide text-center transition-colors duration-150 ease-in-out border border-solid rounded shadow-md bg-transparent text-blue-800 border-blue-800 hover:bg-blue-800 hover:text-white hover:border-blue-800",
 };
 
 export const Notification = {
