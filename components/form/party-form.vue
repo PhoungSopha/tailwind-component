@@ -102,7 +102,7 @@
       </div>
     </form>
     {{ event }}
-    {{ event.title }}
+    {{ event.title }} 
   </div>
 </template>
 <script>

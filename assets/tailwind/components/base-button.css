@@ -1,0 +1,14 @@
+.base__button {
+  @apply leading-1 font-medium border-0 rounded-md cursor-pointer inline-block;
+}
+
+.base__button--primary {
+  @apply text-white bg-primary;
+}
+
+.base__button--secondary {
+  @apply text-white bg-primary;
+}
+.base__button--primary {
+  @apply text-white bg-primary;
+}

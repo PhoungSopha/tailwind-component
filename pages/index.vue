@@ -6,7 +6,7 @@
 
       <template #caption
         >Source:
-        <a href="https://learnvue.co" class="text-green-500 pr-5"
+        <a href="https://learnvue.co" class="text-blue-500 pr-5"
           >Learnvue.co</a
         >
         <base-button color="success" @click="Show">
