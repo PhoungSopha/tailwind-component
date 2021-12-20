@@ -42,7 +42,7 @@ export default {
   computed: {
     checkboxClass() {
       return {
-        "border-danger text-danger": this.errorMessage,
+        "border-1 border-danger text-danger": this.errorMessage,
       };
     },
     inputVal: {

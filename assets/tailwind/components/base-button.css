@@ -1,5 +1,5 @@
 .base__button {
-  @apply leading-1 font-medium border-0 rounded-md cursor-pointer inline-block;
+  @apply px-16 py-12 font-medium rounded-md tracking-wide text-center transition-colors duration-150 ease-in-out border;
 }
 
 .base__button--primary {

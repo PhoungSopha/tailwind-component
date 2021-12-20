@@ -39,7 +39,7 @@ export default {
   computed: {
     inputClass() {
       return {
-        "rounded-md w-full p-2 border mt-2 border-gray-700 focus:border-1 focus:border-blue-500": true,
+        "rounded-md w-full text-gray-500 text-md leading-none p-3 placeholder-gray-300 placeholder-text-xs border mt-2 border-gray-200 focus:border-1 focus:border-blue-500": true,
       };
     },
     labelClass() {

@@ -1,13 +1,37 @@
 :root {
+  --hue-color: 240;
   --danger-color: hsla(0, 100%, 43%, 0.98);
+  --danger-dark: hsla(0, 96%, 34%, 0.98);
+  --danger-lighten: hsla(0, 87%, 66%, 1);
+
   --primary-color: hsla(189, 96%, 49%, 1);
-  --secondary-color: hsla(297, 100%, 50%, 1);
-  --success-color: hsla(118, 100%, 43%, 1);
-  --warning-color: hsla(48, 100%, 50%, 1);
-  --gray-color: rgba(230, 225, 225, 0.5);
+  --primary-dark: hsla(189, 96%, 38%, 1);
+  --primary-lighten: hsla(189, 96%, 60%, 0.97);
+
+  --secondary-color: hsla(227, 100%, 51%, 1);
+  --secondary-dark: hsla(227, 100%, 38%, 1);
+  --secondary-lighten: hsla(227, 100%, 51%, 1);
+
+  --success-color: hsla(100, 54%, 49%, 1);
+  --success-dark: hsla(100, 54%, 36%, 1);
+  --success-lighten: hsla(100, 54%, 56%, 0.9);
+
+  --warning-color: hsla(36, 89%, 57%, 1);
+  --warning-dark: hsla(36, 89%, 41%, 1);
+  --warning-lighten: hsla(36, 75%, 63%, 1);
+
+  --gray-color: rgba(214, 187, 187, 0.5);
   --box-color: rgba(255, 255, 255, 0.18);
+  --first-color: hsl(var(--hue-color), 53%, 49%);
+  --title-color: hsl(var(--hue-color), 53%, 15%);
+  --text-color: hsl(var(--hue-color), 12%, 35%);
+  --text-color-light: hsl(var(--hue-color), 12%, 65%);
+}
+
+body {
+  @apply bg-gray-100;
 }
 
 .title {
-  @apply text-6xl font-bold text-center text-green-500;
+  @apply text-6xl font-bold text-center text-success;
 }

@@ -6,9 +6,7 @@
 
       <template #caption
         >Source:
-        <a href="https://learnvue.co" class="text-blue-500 pr-5"
-          >Learnvue.co</a
-        >
+          <a href="https://learnvue.co" class="text-blue-500 pr-5">Learnvue.co</a>
         <base-button color="success" @click="Show">
           <template>
             <span class="flex items-center">
@@ -45,7 +43,7 @@
     <div class="mt-6">{{ users }}</div>
 
     <div class="mt-5">
-      <nuxt-link to="/user">User Link</nuxt-link>
+      <nuxt-link to="/user" class="title">User Link</nuxt-link>
     </div>
   </div>
 </template>

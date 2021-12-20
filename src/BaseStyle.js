@@ -1,12 +1,18 @@
 export const ButtonColors = {
   success:
-    "px-4 py-2 font-medium tracking-wide text-center transition-colors duration-150 ease-in-out border border-solid rounded shadow-md bg-green-600 text-white border-green-500 hover:bg-green-500 hover:border-green-600",
+    "bg-success text-white border-success-lighten hover:bg-success-lighten hover:border-success",
+
   danger:
-    "px-4 py-2 font-medium tracking-wide text-center transition-colors duration-150 ease-in-out border border-solid rounded shadow-md bg-red-700 text-white border-red-600 hover:bg-red-600 hover:border-red-700",
+    "bg-danger text-white border-danger-lighten hover:bg-danger-lighten hover:border-danger",
+
   primary:
-    "px-4 py-2 font-medium tracking-wide text-center transition-colors duration-150 ease-in-out border border-solid rounded shadow-md bg-blue-800 text-white border-blue-800 hover:bg-transparent hover:text-blue-800 hover:border-blue-800",
+    "bg-primary text-white border-primary-lighten hover:bg-primary-lighten hover:border-primary",
+
   secondary:
-    "px-4 py-2 font-medium tracking-wide text-center transition-colors duration-150 ease-in-out border border-solid rounded shadow-md bg-transparent text-blue-800 border-blue-800 hover:bg-blue-800 hover:text-white hover:border-blue-800",
+    "bg-transparent text-blue-800 border-blue-800 hover:bg-blue-800 hover:text-white hover:border-blue-800",
+
+  warning:
+    "bg-warning text-white border-warning-lighten hover:bg-warning-lighten hover:border-warning",
 };
 
 export const Notification = {

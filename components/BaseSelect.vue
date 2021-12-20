@@ -13,7 +13,7 @@
       >
         <el-option
           v-for="(item, index) in dataSource"
-          class="text-2xl"
+          class="text-2xl p-5"
           :key="index"
           :label="item.name"
           :value="item.value"
