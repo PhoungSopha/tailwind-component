@@ -19,15 +19,20 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/mixin/global.js", "@/plugins/element-ui"],
+  plugins: [
+    "~/mixin/global.js",
+    "@/plugins/element-ui",
+    
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // "@nuxtjs/tailwindcss",
     // https://go.nuxtjs.dev/tailwindcss
-    // '@nuxtjs/tailwindcss',
+   
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

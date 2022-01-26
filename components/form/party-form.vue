@@ -1,12 +1,12 @@
 <template>
-  <div class="max-w-lg mx-auto p-7 w-lg">
+  <div class="max-w-2xl mx-auto p-7 w-lg">
     <form action="#" class="mx-auto p-5 w-full shadow-lg rounded-md">
       <h2
         class="text-3xl font-bold antialiased text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-purple-500"
       >
         Create an eventParty
       </h2>
-      <div class="mt-5 flex flex-col gap-5">
+      <div class="mt-5 flex flex-col gap-5">  
         <!-- <div class="grid gap-2">
           <label for="">Select a category</label>
           <select
@@ -24,11 +24,13 @@
             </option>
           </select>
         </div> -->
-        <BaseDatePicker
-          v-model="eventParty.date"
-          :disabled-date="disableFutureDate"
-          label="Join date"
-        />
+        <div>
+          <BaseDatePicker
+            v-model="eventParty.date"
+            label="Join date"
+            :disabledDate="pickerOptions"
+          />
+        </div>
 
         <BaseSelect
           :data-source="categories"
@@ -56,6 +58,12 @@
         >
           Where is your eventParty?
         </h2>
+        <div>
+          <BaseSwitcher1
+            v-model="eventParty.partner"
+            label="Can drink alcohol in the party"
+          />
+        </div>
 
         <!-- <BaseInput type="text" v-model="eventParty.location" label="Location" /> -->
         <BaseSelect
@@ -69,7 +77,7 @@
         >
           Are pets allowed?
         </h2>
-        <div class="flex gap-5">
+        <!-- <div class="flex gap-5">
           <div class="flex items-center gap-2">
             <input
               type="radio"
@@ -88,21 +96,46 @@
             />
             <label for="no">No</label>
           </div>
-        </div>
+        </div> -->
+
+        <BaseRadio
+          :source="petAvailable"
+          v-model="eventParty.pets"
+          @change="
+            (radio) => {
+              eventParty.pets = radio;
+            }
+          "
+        />
+
         <h2
           class="text-xl font-bold antialiased text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-purple-500"
         >
           Extras
         </h2>
-        <div class="flex items-center gap-2">
+        <!-- <div class="flex items-center gap-2">
           <input type="checkbox" v-model="eventParty.extras.catering" />
           <label>Catering</label>
         </div>
         <div class="flex items-center gap-2">
           <input type="checkbox" v-model="eventParty.extras.music" />
           <label>Live music</label>
+        </div> -->
+    
+        <BaseCheckBox
+          :source="extrasOption"
+          v-model="eventParty.extras"
+          @change="
+            (checked) => {
+              eventParty.extras = checked;
+            }
+          "
+        ></BaseCheckBox>
+        <div class="my-5">
+          <SdSelect :options="categories"></SdSelect>
         </div>
-        <div class="mt-5 flex items-end justify-center gap-x-2">
+
+        <div class="mt-5 flex flex-wrap items-end justify-center gap-x-2">
           <el-tooltip
             class="item"
             effect="dark"
@@ -142,49 +175,66 @@
           >
             <!-- <button
               class="block mx-auto py-2 px-3 text-white font-medium rounded-md bg-gradient-to-r from-green-500 to-purple-500"
-            >
+            > 
               Submit
             </button> -->
-            <base-button type="warning">Click me</base-button>
+            <base-button type="warning" size="sm">Click me</base-button>
             <!-- <el-button type="primary" icon="el-icon-edit" circle></el-button -->
             ></el-tooltip
           >
-          <el-tooltip
-            class="item"
-            effect="dark"
-            content="Submit to the party"
-            placement="bottom"
-          >
-            <!-- <button
+
+          <!-- <button
               class="block mx-auto py-2 px-3 text-white font-medium rounded-md bg-gradient-to-r from-green-500 to-purple-500"
             >
               Submit
             </button> -->
-            <base-button type="warning" loading>Click me</base-button>
-            <!-- <el-button type="primary" icon="el-icon-edit" circle></el-button -->
-            ></el-tooltip
-          >
+          <base-button disabled>Click me</base-button>
+          <base-button loading>Click me</base-button>
+          <!-- <el-button type="primary" icon="el-icon-edit" circle></el-button -->
         </div>
         <div>
-          <base-switch v-model="toggleValue"></base-switch>
+          <base-switch v-model="toggleValue" label="Mode"></base-switch>
         </div>
+        <div></div>
       </div>
     </form>
-    {{ eventParty }}
+    <div>{{ eventParty }}</div>
+    <div>{{ House }}</div>
   </div>
 </template>
 <script>
-import BaseButton from "../BaseButton.vue";
-import BaseInput from "../BaseInput.vue";
-import BaseDatePicker from "../BaseDatePicker.vue"; 
+import BaseButton from "../ui/BaseButton.vue";
+import BaseInput from "../ui/BaseInput.vue";
+import BaseDatePicker from "../ui/BaseDatePicker.vue";
+import BaseCheckBox from "../ui/BaseCheckBox.vue";
+import BaseRadio from "../ui/BaseRadio.vue";
+import BaseSwitcher1 from "../ui/BaseSwitcher1.vue";
+import BaseSelect from "../ui/BaseSelect.vue";
+import BaseSwitch from "../ui/BaseSwitch.vue";
+import SdSelect from "../ui/SdSelect.vue";
 export default {
-  components: { BaseInput, BaseButton, BaseDatePicker },
+  components: {
+    BaseInput,
+    BaseButton,
+    BaseDatePicker,
+    BaseCheckBox,
+    BaseRadio,
+    BaseSwitcher1,
+    BaseCheckBox,
+    BaseSelect,
+    BaseSwitch,
+    SdSelect,
+  },
   data() {
     return {
+      disabled: true,
       toggleValue: false,
-      disableFutureDate(time) {
-        return time.getTime() > Date.now();
+      pickerOptions(time) {
+        return time.getTime() < Date.now();
       },
+
+      House: [],
+
       Location: [
         "Moung Roessei",
         "Phnom Penh",
@@ -212,18 +262,36 @@ export default {
       ],
       eventParty: {
         date: null,
+        drinkAlcohol: false,
         description: "",
         category: "",
         title: "",
         location: "",
-        pets: 1,
-        extras: {
-          catering: false,
-          music: false,
-        },
+        pets: "1",
+        extras: [],
       },
     };
   },
-  computed: {},
+  computed: {
+    extrasOption() {
+      return [
+        { value: "catering", label: "Catering" },
+        { value: "music", label: "Live music" },
+      ];
+    },
+    petAvailable() {
+      return [
+        { value: "1", label: "Yes" },
+        { value: "0", label: "No" },
+      ];
+    },
+    // housing() {
+    //   return [
+    //     { value: "Villa", label: "Villa" },
+    //     { value: "Link House", label: "Link House" },
+    //     { value: "Twin Villa", label: "Twin Villa" },
+    //   ];
+    // },
+  },
 };
 </script>

@@ -1,5 +1,5 @@
 .base__button {
-  @apply px-16 py-12 font-medium rounded-md tracking-wide text-center transition-colors duration-150 ease-in-out border;
+  @apply font-medium rounded-md tracking-wide text-center transition-colors duration-150 ease-in-out border;
 }
 
 .base__button--primary {
@@ -9,6 +9,6 @@
 .base__button--secondary {
   @apply text-white bg-primary;
 }
-.base__button--primary {
+.base__button--primary {  
   @apply text-white bg-primary;
 }

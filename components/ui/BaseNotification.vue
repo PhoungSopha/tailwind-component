@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import { Notification } from "../src/BaseStyle";
+// import { Notification } from "../src/BaseStyle";
 export default {
   name: "base-notification",
   props: {

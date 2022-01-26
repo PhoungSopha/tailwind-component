@@ -12,7 +12,7 @@ module.exports = {
       `nuxt.config.{js,ts}`,
     ],
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -66,7 +66,15 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    backgroundColor: [
+      "dark",
+      "dark-hover",
+      "dark-group-hover",
+      "dark-even",
+      "dark-odd",
+    ],
+    borderColor: ["dark", "dark-focus", "dark-focus-within"],
+    textColor: ["dark", "dark-hover", "dark-active"],
   },
   plugins: [require("@tailwindcss/forms")],
 };

@@ -6,7 +6,7 @@
       >
       <el-select
         :class="selectClass"
-        :value="value"
+        :value="value" 
         :disabled="disabled"
         :placeholder="placeholder"
         @input="$emit('input', $event)"
@@ -22,6 +22,9 @@
           {{ item }}
         </el-option>
       </el-select>
+      <div v-if="errorMessage" class="text-danger mt-2 text-md">
+        {{ errorMessage }}
+      </div>
     </div>
   </div>
 </template>
@@ -33,6 +36,7 @@ export default {
     placeholder: { type: String, default: "" },
     disabled: { type: Boolean, default: false },
     optional: { type: Boolean, default: false },
+    errorMessage: { type: String, default: "" },
 
     dataSource: {
       type: Array,
@@ -52,6 +56,7 @@ export default {
     selectClass() {
       return {
         "w-full rounded-md mt-2 cursor-pointer uppercase text-xl font-medium": true,
+        "border-2 border-danger": this.errorMessage,
       };
     },
     labelClass() {

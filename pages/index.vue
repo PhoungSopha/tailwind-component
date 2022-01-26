@@ -6,7 +6,7 @@
 
       <template #caption
         >Source:
-          <a href="https://learnvue.co" class="text-blue-500 pr-5">Learnvue.co</a>
+        <a href="https://learnvue.co" class="text-blue-500 pr-5">Learnvue.co</a>
         <base-button color="success" @click="Show">
           <template>
             <span class="flex items-center">
@@ -17,9 +17,9 @@
             </span>
           </template>
         </base-button>
-        <div class="mt-4">
+        <!-- <div class="mt-4">
           <BaseNotification color="warning" :description="msg" />
-        </div>
+        </div> -->
       </template>
     </caption-content>
 
@@ -45,17 +45,32 @@
     <div class="mt-5">
       <nuxt-link to="/user" class="title">User Link</nuxt-link>
     </div>
+    <div class="mt-5">
+      <nuxt-link to="/table" class="title">table</nuxt-link>
+    </div>
+    <div class="mt-5">
+      <el-checkbox-group v-model="getOrder">
+        <el-checkbox v-for="item in orderOption" :key="item.id" :label="item">{{
+          item
+        }}</el-checkbox>
+      </el-checkbox-group>
+    </div>
+    <div class="mt-10">
+      {{ getOrder }}
+    </div>
   </div>
 </template>
 
 <script>
 import CaptionContent from "../components/CaptionContent.vue";
-import BaseButton from "../components/BaseButton.vue";
-import BaseNotification from "../components/BaseNotification.vue";
+import BaseButton from "../components/ui/BaseButton.vue";
+// import BaseNotification from "../components/ui/BaseNotification.vue";
 export default {
-  components: { CaptionContent, BaseButton, BaseNotification },
+  components: { CaptionContent, BaseButton },
   data() {
     return {
+      getOrder: [],
+      orderOption: ["delivery", "dine in", "take away"],
       msg: "Welcome to Mobile Legend Welcome to Mobile Legend Welcome to Mobile Legend Welcome to Mobile Legend",
       message: "Hi",
       users: {

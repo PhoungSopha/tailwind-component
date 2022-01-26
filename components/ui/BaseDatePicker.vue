@@ -1,25 +1,25 @@
 <template>
   <div>
-    <div
-      class="flex sm:gap-x-2 flex-col sm:flex-row sm:justify-between sm:items-center gap-y-2"
-    >
+    <div class="sd-date-picker flex items-center gap-x-10 justify-between">
       <label v-if="label || optional" :class="classLabel">
         {{ label }}
         <span v-if="!optional" class="text-danger">*</span>
       </label>
-      <div class="sd-date-picker">
-        <el-date-picker
-          v-model="selectedDate"
-          :disabled="disabled"
-          :pick-option="dateOptions"
-          :placeholder="placeholder"
-          :value-format="valueFormat"
-          :format="format"
-          @change="handleEmitInput"
-        ></el-date-picker>
-      </div>
+
+      <el-date-picker
+        :class="{ 'border-2 border-danger rounded-md': this.errorMessage }"
+        v-model="selectedDate"
+        :disabled="disabled"
+        :pick-option="dateOptions"
+        :placeholder="placeholder"
+        :value-format="valueFormat"
+        :format="format"
+        @change="handleEmitInput"
+      ></el-date-picker>
     </div>
-    <span v-if="errorMessage" class="text-danger">{{ errorMessage }}</span>
+    <span v-if="errorMessage" class="text-danger mt-2 text-md">{{
+      errorMessage
+    }}</span>
   </div>
 </template>
 <script>
@@ -52,7 +52,7 @@ export default {
   computed: {
     classLabel() {
       return {
-        "tracking-wide text-gray-800": true,
+        "tracking-wide text-gray-800 w-full": true,
       };
     },
   },
